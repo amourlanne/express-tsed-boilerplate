@@ -1,0 +1,74 @@
+{
+  "name": "express-typeorm-boilerplate",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "Alexis Mourlanne",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts",
+    "build": "webpack --mode production",
+    "serve": "node build/index.js",
+    "lint": "eslint --ext .js,.ts ./src ./tests",
+    "test": "jest ./tests",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli migration:generate -n",
+    "migration": "ts-node ./node_modules/typeorm/cli migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli migration:revert",
+    "fixtures": "ts-node ./node_modules/typeorm-fixtures-cli/dist/cli --config ./ormconfig.js src/fixtures"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "@types/express": "^4.17.2",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.0",
+    "@types/supertest": "^2.0.8",
+    "@typescript-eslint/parser": "^2.19.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.2",
+    "reflect-metadata": "^0.1.13",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.2.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "typeorm": "^0.2.22",
+    "typeorm-fixtures-cli": "^1.4.2",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "extends": [],
+    "rules": {}
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    }
+  }
+}
