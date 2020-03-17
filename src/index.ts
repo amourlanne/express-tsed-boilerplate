@@ -1,15 +1,16 @@
-import {createConnection} from "typeorm";
-import server from "./server";
+import {ServerLoader} from "@tsed/common";
+import config from "../config/server";
 
-async function bootstrap () {
-    try {
-        await createConnection();
-        server.listen(3000, () => {
-            console.log('app listening on port 3000!')
-        });
-    } catch (error) {
-        console.error(error);
-    }
+import Server from "./Server";
+
+async function bootstrap() {
+  try {
+    const server = await ServerLoader.bootstrap(Server, config);
+
+    await server.listen();
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 bootstrap();

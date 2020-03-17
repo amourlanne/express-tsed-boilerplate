@@ -9,15 +9,24 @@
     "start": "ts-node src/index.ts",
     "build": "webpack --mode production",
     "serve": "node build/index.js",
-    "lint": "eslint --ext .js,.ts ./src ./tests",
-    "test": "jest ./tests",
-    "migration:generate": "ts-node ./node_modules/typeorm/cli migration:generate -n",
-    "migration": "ts-node ./node_modules/typeorm/cli migration:run",
-    "migration:revert": "ts-node ./node_modules/typeorm/cli migration:revert",
-    "fixtures": "ts-node ./node_modules/typeorm-fixtures-cli/dist/cli --config ./ormconfig.js src/fixtures"
+    "lint": "eslint --ext .js,.ts ./src ./test",
+    "test": "jest test",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli --config config/packages/typeorm.ts migration:generate -n",
+    "migration": "ts-node ./node_modules/typeorm/cli --config config/packages/typeorm.ts migration:run",
+    "migration:revert": "ts-node ./node_modules/typeorm/cli --config config/packages/typeorm.ts migration:revert",
+    "fixtures": "ts-node ./node_modules/typeorm-fixtures-cli/dist/cli --config config/packages/typeorm.ts src/Fixtures"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@tsed/common": "^5.44.9",
+    "@tsed/core": "^5.44.9",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "method-override": "^3.0.0",
+    "twig": "^1.15.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.4",

@@ -1,6 +1,0 @@
-entity: User
-parameters: {}
-items:
-  user{1..10}:
-    name: '{{name.firstName}} {{name.lastName}}'
-    email: '{{internet.email}}'
