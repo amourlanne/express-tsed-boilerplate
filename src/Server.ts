@@ -1,13 +1,14 @@
 import {GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings} from "@tsed/common";
 
-import {getConnectionManager} from "typeorm";
-
 import bodyParser from "body-parser";
 import compress from "compression";
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
 import helmet from 'helmet';
+
+import "@tsed/typeorm";
+import "@tsed/ajv";
 
 @ServerSettings()
 export default class Server extends ServerLoader {
@@ -16,16 +17,12 @@ export default class Server extends ServerLoader {
     super(settings);
   }
 
-  async $beforeInit() {
-    const connectionManager = getConnectionManager();
-    const connection = connectionManager.create(this.settings.get("typeorm"));
-
-    await connection.connect(); // performs connection
-  }
-
   async $onInit() {
     this.set("views", this.settings.get("viewsDir"));
     this.set("view engine", this.settings.get("viewEngine"));
+
+    const mailer = this.settings.get("mailer");
+
   }
 
   /**

@@ -1,4 +1,5 @@
 import typeorm from "./packages/typeorm";
+import mailer from "./packages/mailer";
 
 export default {
     rootDir: "src",
@@ -24,6 +25,15 @@ export default {
     },
     viewsDir: "templates/Views",
     viewEngine: "twig",
-    typeorm: typeorm,
-    fixturesDir: "src/Fixtures"
+    ajv: {
+        errorFormat: (error) => `At ${error.modelName}${error.dataPath}, value '${error.data}' ${error.message}`,
+        options: {verbose: true}
+    },
+    typeorm: [
+      {
+        name: "default",
+        ...typeorm
+      }
+    ],
+    mailer: mailer
 }

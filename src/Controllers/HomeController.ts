@@ -5,7 +5,7 @@ export class HomeController {
 
   @Get("/")
   @ResponseView("home/index")
-  async index() {
+  private async index() {
     return {
       message: "Hello World!"
     };
