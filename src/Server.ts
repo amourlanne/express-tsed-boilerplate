@@ -20,9 +20,6 @@ export default class Server extends ServerLoader {
   async $onInit() {
     this.set("views", this.settings.get("viewsDir"));
     this.set("view engine", this.settings.get("viewEngine"));
-
-    const mailer = this.settings.get("mailer");
-
   }
 
   /**
