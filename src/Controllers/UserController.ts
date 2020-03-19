@@ -17,7 +17,6 @@ export class UserController {
 
   @Post("/")
   private async create(@BodyParams() user: User): Promise<User> {
-    console.log(user);
     return user;
   }
 

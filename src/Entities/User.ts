@@ -16,10 +16,8 @@ export class User {
   @Column()
   username: string;
 
-  @Property()
   @Required()
   @Column()
-  @Property()
   fullName: string;
 
   @Email()
@@ -27,7 +25,6 @@ export class User {
   @Column()
   email: string;
 
-  @Property()
   @Required()
   @Enum(GenderEnum)
   @Column({
