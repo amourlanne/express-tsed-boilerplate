@@ -8,6 +8,11 @@ export default {
         "multipart/form-data"
     ],
     port: 3000,
+    swagger: [
+      {
+        path: "/api-docs"
+      }
+    ],
     mount: {
         "/": "src/Controllers/**/*Controller.ts"
     },

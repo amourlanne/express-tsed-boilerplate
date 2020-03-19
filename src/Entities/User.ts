@@ -1,5 +1,5 @@
 import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
-import {Enum, Property, Required} from "@tsed/common";
+import {Email, Enum, MaxLength, MinLength, Property, Required} from "@tsed/common";
 
 import {GenderEnum} from "../Enums/GenderEnum";
 
@@ -10,10 +10,10 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Property()
   @Required()
+  @MaxLength(20)
+  @MinLength(3)
   @Column()
-  @Property()
   username: string;
 
   @Property()
@@ -22,7 +22,7 @@ export class User {
   @Property()
   fullName: string;
 
-  @Property()
+  @Email()
   @Required()
   @Column()
   email: string;

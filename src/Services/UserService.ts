@@ -11,6 +11,10 @@ export class UserService {
     return this.userRepository.find();
   }
 
+  public async save(user: User): Promise<User> {
+    return this.userRepository.save(user);
+  }
+
   public async getOneByUsername(username: string): Promise<User> {
     return this.userRepository.findOne({ username: username});
   }

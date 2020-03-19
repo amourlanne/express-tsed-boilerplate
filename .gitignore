@@ -2,6 +2,7 @@
 /node_modules
 
 /build
+/dist
 
 # IDEs and editors
 /.idea
@@ -34,3 +35,5 @@ testem.log
 Thumbs.db
 
 yarn.lock
+
+.env

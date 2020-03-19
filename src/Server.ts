@@ -1,14 +1,15 @@
 import {GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings} from "@tsed/common";
 
+import "@tsed/ajv";
+import "@tsed/typeorm";
+import "@tsed/swagger";
+
 import bodyParser from "body-parser";
 import compress from "compression";
 import cookieParser from "cookie-parser";
 import methodOverride from "method-override";
 import cors from "cors";
 import helmet from 'helmet';
-
-import "@tsed/typeorm";
-import "@tsed/ajv";
 
 @ServerSettings()
 export default class Server extends ServerLoader {

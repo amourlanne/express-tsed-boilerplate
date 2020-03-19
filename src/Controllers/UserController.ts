@@ -1,4 +1,4 @@
-import {Controller, Get, PathParams, Required} from "@tsed/common";
+import {BodyParams, Controller, Get, PathParams, Post, Required} from "@tsed/common";
 import {UserService} from "../Services/UserService";
 import {User} from "../Entities/User";
 import {MailerService} from "../Services/MailerService";
@@ -13,6 +13,12 @@ export class UserController {
   @Get("/")
   private async getAll(): Promise<User[]> {
     return this.userService.getAll();
+  }
+
+  @Post("/")
+  private async create(@BodyParams() user: User): Promise<User> {
+    console.log(user);
+    return user;
   }
 
   @Get("/:username/send-welcome")
