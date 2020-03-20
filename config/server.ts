@@ -8,11 +8,6 @@ export default {
         "multipart/form-data"
     ],
     port: 3000,
-    swagger: [
-      {
-        path: "/api-docs"
-      }
-    ],
     mount: {
         "/": "src/Controllers/**/*Controller.ts"
     },
@@ -33,6 +28,15 @@ export default {
     ajv: {
         errorFormat: (error) => `At ${error.modelName}${error.dataPath}, value '${error.data}' ${error.message}`,
         options: {verbose: true}
+    },
+    swagger: [
+      {
+        path: "/docs"
+      }
+    ],
+    socketIO: {
+      path: "/socket.io",
+      serveClient: true
     },
     typeorm: [
       {

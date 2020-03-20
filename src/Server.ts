@@ -2,6 +2,7 @@ import {GlobalAcceptMimesMiddleware, ServerLoader, ServerSettings} from "@tsed/c
 
 import "@tsed/ajv";
 import "@tsed/typeorm";
+import "@tsed/socketio";
 import "@tsed/swagger";
 
 import bodyParser from "body-parser";
@@ -29,15 +30,13 @@ export default class Server extends ServerLoader {
    */
   public $beforeRoutesInit(): void|Promise<any> {
     this
-        .use(cors(this.settings.get("cors")))
-        .use(helmet())
+        // .use(cors(this.settings.get("cors")))
+        // .use(helmet())
         .use(GlobalAcceptMimesMiddleware)
         .use(bodyParser.json())
         .use(bodyParser.urlencoded({extended: true}))
-        .use(cookieParser())
-        .use(compress({}))
+        // .use(cookieParser())
+        // .use(compress({}))
         .use(methodOverride());
-
-    return null;
   }
 }
