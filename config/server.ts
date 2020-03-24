@@ -8,6 +8,11 @@ export default {
         "multipart/form-data"
     ],
     port: 3000,
+  logger: {
+    debug: false,
+    logRequest: false,
+    requestFields: ["body", "reqId", "method", "url", "headers", "query", "params", "duration"]
+  },
     mount: {
         "/": "src/Controllers/**/*Controller.ts"
     },
@@ -34,6 +39,7 @@ export default {
         path: "/docs"
       }
     ],
+    validationModelStrict: true,
     socketIO: {
       path: "/socket.io",
       serveClient: true

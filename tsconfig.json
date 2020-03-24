@@ -9,6 +9,7 @@
         "moduleResolution": "node",
         "allowJs": true,
 //        "isolatedModules": true,
+        "declaration": false,
         "esModuleInterop": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -23,8 +24,8 @@
         ]
     },
     "include": [
-        "src",
-        "tests"
+        "./src/**/*.ts",
+        "./tests/**/*.ts"
     ],
     "exclude": [
         "./public",
